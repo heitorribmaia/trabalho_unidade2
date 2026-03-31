@@ -12,7 +12,7 @@ function setCount(newValue) {
 let state = { count: 0, dark: false };
 
 elIncrement.addEventListener("click", () => {
-  state.count += 1;
+  state.count += 2;
   setCount(state.count);
 });
 
@@ -23,8 +23,11 @@ elDecrement.addEventListener("click", () => {
 
 elToggleTheme.addEventListener("click", () => {
   state.dark = !state.dark;
+  document.documentElement.style.setProperty("--primary", state.dark ? "#ef4444" : "#dc2626");
   document.documentElement.style.setProperty("--bg", state.dark ? "#0b1220" : "#f8fafc");
   document.documentElement.style.setProperty("--text", state.dark ? "#e2e8f0" : "#0f172a");
+  document.documentElement.style.setProperty("--card", state.dark ? "#111827" : "#ffffff");
+  document.documentElement.style.setProperty("--border", state.dark ? "#1f2937" : "#e5e7eb");
   elTitle.textContent = state.dark ? "Mini App – Modo Escuro" : "Mini App – GitFlow";
   elToggleTheme.setAttribute("aria-pressed", String(state.dark));
 });
